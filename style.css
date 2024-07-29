@@ -1,0 +1,158 @@
+@font-face {
+    font-family: kamerik-k;
+    src: url("fonts/kamerik205-heavy.woff2");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #01122b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: kamerik-k;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.scene {
+    height: 550vh;
+}
+
+.layer {
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-timeline: scroll();
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range: 0 300vh;
+}
+
+.layer:nth-child(1) {
+    animation-name: animation-1;
+
+}
+
+@keyframes animation-1 {
+    to{scale: 1.25}
+}
+
+.layer:nth-child(2) {
+    animation-name: animation-2;
+}
+
+@keyframes animation-2 {
+    to{scale: 1.275}
+}
+
+.layer:nth-child(3) {
+    animation-name: animation-3;
+}
+
+@keyframes animation-3 {
+    to{scale: 1.5}
+}
+
+.layer:nth-child(4) {
+    animation-name: animation-4;
+}
+
+@keyframes animation-4 {
+    to{scale: 2}
+}
+
+.layer:nth-child(5) {
+
+}
+
+.layer__content {
+    padding: 5vh 5vw;
+    backdrop-filter: blur(25px) brightness(.98);
+    animation-timeline: scroll();
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range: 0 100vh;
+    animation-name: animation-head;
+}
+
+@keyframes animation-head {
+    to {opacity: 0; filter: blur(25px)}
+}
+
+.layer__end {
+    padding: 5vh 5vw;
+    backdrop-filter: blur(25px) brightness(.98);
+    animation-timeline: scroll();
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range: 250vh 300vh;
+    animation-name: animation-end;
+    opacity: 0;
+    position: absolute;
+}
+
+.layer__end h3 {
+    position: relative;
+}
+
+.layer__end::before {
+    content: '';
+    background: #01122b;
+    inset: 0;
+    position: absolute;
+    animation-timeline: scroll();
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-range: 300vh 450vh;
+    animation-name: animation-bg;
+    opacity: 0;
+}
+
+@keyframes animation-bg {
+    to{opacity: 1}
+}
+
+@keyframes animation-end {
+    to {opacity: 1}
+}
+
+
+.layer__content h1 {
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 4.5);
+    text-align: center;
+    line-height: .9em;
+    letter-spacing: -.15vw;
+}
